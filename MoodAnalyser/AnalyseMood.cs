@@ -21,11 +21,11 @@ namespace MoodAnalyser
         /// <returns></returns>
         public string analysemood()
         {
-            if (this.mood.Equals("Happy"))
+            if (this.mood.ToLower().Contains("happy")|| this.mood.ToLower().Contains("any"))
             {
                 this.mood = "Happy";
             }
-            else if (this.mood.Equals("Sad"))
+            else if (this.mood.ToLower().Contains("sad"))
             {
                 this.mood = "Sad";
             }
