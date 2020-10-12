@@ -19,18 +19,24 @@ namespace MoodAnalyser
         /// Check if sad or happy
         /// </summary>
         /// <returns></returns>
-        public string analysemood()
+        public string Analysemood()
         {
-            try {
+            try
+            {
                 if (this.mood.Contains("Sad"))
                 {
-                    return "SAD";
+                    return "Sad Mood";
                 }
-                return "HAPPY";
+                if (this.mood.Equals(string.Empty))
+                {
+                    throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.ENTERED_EMPTY, "String shouldn't be empty");
+                }
+
+                return "Happy Mood";
             }
-            catch
+            catch (NullReferenceException)
             {
-                return "HAPPY";
+                throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.ENTERED_NULL, "string shouldn't be null");
             }
         }
     }
