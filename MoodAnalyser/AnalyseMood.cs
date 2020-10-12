@@ -5,8 +5,8 @@ using System.Text;
 namespace MoodAnalyser
 {
     public class AnalyseMood
-    {  
-         private string mood = "";
+    {
+        private string mood = "";
         /// <summary>
         ///Setting parameterized constructor to take message
         /// </summary>
@@ -21,19 +21,18 @@ namespace MoodAnalyser
         /// <returns></returns>
         public string analysemood()
         {
-            if (this.mood.Equals("Happy"))
-            {
-                this.mood = "Happy";
+            try {
+                if (this.mood.Contains("Sad"))
+                {
+                    return "SAD";
+                }
+                return "HAPPY";
             }
-            else if (this.mood.Equals("Sad"))
+            catch
             {
-                this.mood = "Sad";
+                return "HAPPY";
             }
-            else
-            {
-                this.mood = "Invalid";
-            }
-            return this.mood;
         }
     }
 }
+

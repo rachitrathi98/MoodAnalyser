@@ -5,24 +5,37 @@ namespace MoodAnalyserTest
 {
     [TestClass]
     public class UnitTest1
-    {   /// <summary>
-        /// Setup Method to Initialise Object and this method will be invoked in each test method
-        /// </summary>
-
-        AnalyseMood mood = null;
-        [TestInitialize]
-        public void SetUp ()
-        {
-             mood = new AnalyseMood("Sad");
-        }
+    {
         /// <summary>
         /// Test the string 
         /// </summary>
         [TestMethod]
-        public void TestMethod1()
+        public void ReturnSadMoodForSad()
         {
-            string moodOutput = mood.analysemood();
-            Assert.AreEqual("Sad", moodOutput);
+            string expected = "SAD";
+            string message = "I am in Sad Mood";
+            AnalyseMood moodAnalyzer = new AnalyseMood(message);
+
+            //Act
+            string mood = moodAnalyzer.Analysemood();
+
+            //Assert
+            Assert.AreEqual(expected, mood);
+        }
+        [TestMethod]
+        [DataRow(null)]
+        public void ReturnHappyMoodForHappy(string message)
+        {
+            //Arrange
+            string expected = "HAPPY";
+            AnalyseMood moodAnalyzer = new AnalyseMood(message);
+            //Act
+            string mood = moodAnalyzer.Analysemood();
+            //Assert
+            Assert.AreEqual(expected, mood);
         }
     }
 }
+
+
+
