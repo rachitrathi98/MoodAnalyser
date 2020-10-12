@@ -8,37 +8,11 @@ namespace MoodAnalyserTest
     public class UnitTest1
     {
         [TestMethod]
-        public void TestNullMessage()
+        public void GivenMoodAnalyserReflection_Return_MoodAnalyserObject()
         {
-            string actual;
-            try
-            {
-                //Arrange
-                AnalyseMood mood = new AnalyseMood(null);
-                //Act
-                actual = mood.Analysemood();
-            }
-            catch (MoodAnalyserCustomException e)
-            {
-                actual = e.Message;
-            }
-            //Assert
-            Assert.AreNotEqual("Happy Mood", actual);
-        }
-        [TestMethod]
-        public void TestHappyMessage()
-        {
-            AnalyseMood mood = new AnalyseMood("I am in Happy Mood right now");
-            string actual = mood.Analysemood();
-            Assert.AreEqual("Happy Mood", actual);
-        }
-
-        [TestMethod]
-        public void TestSadMessage()
-        {
-            AnalyseMood mood = new AnalyseMood("I am in Sad Mood right now");
-            string actual = mood.Analysemood();
-            Assert.AreEqual("Sad Mood", actual);
+            var obj = new AnalyseMood();
+            object result = MoodAnalyserFactory.CreateMoodAnalyserObject("MoodAnalyser.AnalyseMood", "AnalyseMood");
+            obj.Equals(result);
         }
 
     }

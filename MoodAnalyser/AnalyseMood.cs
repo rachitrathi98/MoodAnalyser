@@ -11,9 +11,14 @@ namespace MoodAnalyser
         ///Setting parameterized constructor to take message
         /// </summary>
         /// <param name="inputMessage">The input message.</param>
-        public AnalyseMood(string inputMessage)
+        //public AnalyseMood(string inputMessage)
+        //{
+        //    this.mood = inputMessage;
+        //}
+
+        public AnalyseMood()
         {
-            this.mood = inputMessage;
+            Console.WriteLine("Default Constuctor");
         }
         /// <summary>
         /// Check if sad or happy
