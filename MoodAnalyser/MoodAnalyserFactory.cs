@@ -21,7 +21,7 @@ namespace MoodAnalyser
                     var res = Activator.CreateInstance(moodAnalyserType);
                     return res;
                 }
-                catch (NullReferenceException)
+                catch (Exception)
                 {
                     throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NO_SUCH_CLASS, "class not found");
                 }

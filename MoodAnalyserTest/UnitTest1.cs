@@ -17,16 +17,18 @@ namespace MoodAnalyserTest
         [TestMethod]
         public void GivenImproperClassName_Return_MoodAnalysisException()
         {
-            var obj = new AnalyseMood();
+            string expected= "class not found";
+            string actual = "";
             try
             {
-                object result = MoodAnalyserFactory.CreateMoodAnalyserObject("MoodAnalyser.AnalyseMood", "AnalyseMood");
+                object result = MoodAnalyserFactory.CreateMoodAnalyserObject("MoodAnalyser.AnalyseMoods", "AnalyseMoods");
 
             }
-            catch (Exception)
+            catch (MoodAnalyserCustomException e)
             {
-
+                actual = e.Message;
             }
+            Assert.AreEqual(expected, actual);
         }
 
     }
