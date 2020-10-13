@@ -18,15 +18,31 @@ namespace MoodAnalyserTest
         public void GivenMoodAnalyserReflection_Return_MoodAnalyserParameterizedObject()
         {
             var obj = new AnalyseMood("happy");
-            object result = MoodAnalyserFactory.CreateMoodAnalyserParameterizedObject("TestReflections.MoodAnalyser", "MoodAnalyser", "happy");
+            object result = MoodAnalyserFactory.CreateMoodAnalyserParameterizedObject("MoodAnalyser.AnalyseMood", "AnalyseMood", "happy");
             obj.Equals(result);
         }
         [TestMethod]
         public void GivenHappyMood_ShouldReturn_HappyMessage()
         {
             var expected = "happy";
-            string mood = MoodAnalyserFactory.InvokeAnalyserMethod("happy", "Analysermood");
+            string mood = MoodAnalyserFactory.InvokeAnalyserMethod("happy", "Analysemood");
             expected.Equals(mood);
+        }
+
+        [TestMethod]
+        public void GivenHappyMoodImproperMethod_ShouldReturn_HappyMessage()
+        {
+            string expected = "method not found";
+            string actual = "";
+            try
+            {
+                string mood = MoodAnalyserFactory.InvokeAnalyserMethod("happy", "Analysemoods");
+            }
+            catch(MoodAnalyserCustomException e)
+            {
+                actual = e.Message;
+            }
+            expected.Equals(actual);
         }
 
     }
