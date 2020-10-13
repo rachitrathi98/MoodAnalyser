@@ -14,6 +14,20 @@ namespace MoodAnalyserTest
             object result = MoodAnalyserFactory.CreateMoodAnalyserObject("MoodAnalyser.AnalyseMood", "AnalyseMood");
             obj.Equals(result);
         }
+        [TestMethod]
+        public void GivenImproperClassName_Return_MoodAnalysisException()
+        {
+            var obj = new AnalyseMood();
+            try
+            {
+                object result = MoodAnalyserFactory.CreateMoodAnalyserObject("MoodAnalyser.AnalyseMood", "AnalyseMood");
+
+            }
+            catch (Exception)
+            {
+
+            }
+        }
 
     }
 }
