@@ -31,5 +31,22 @@ namespace MoodAnalyserTest
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        public void GivenImproperConstructor_Return_MoodAnalysisException()
+        {
+            string expected = "constructor not found";
+            string actual = "";
+            try
+            {
+                object result = MoodAnalyserFactory.CreateMoodAnalyserObject("MoodAnalyser.AnalyseMood", "AnalyseMoods");
+
+            }
+            catch (MoodAnalyserCustomException e)
+            {
+                actual = e.Message;
+            }
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }
