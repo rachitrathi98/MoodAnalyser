@@ -44,6 +44,39 @@ namespace MoodAnalyserTest
             }
             expected.Equals(actual);
         }
-
+        [TestMethod]
+        public void GivenHappy_ReturnHAPPY()
+        {
+            //Arrange
+            string expected = "HAPPY";
+            //Act
+            string actual = MoodAnalyserFactory.SetField("HAPPY", "message");
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void SetFieldWhenImproper_ShouldThrowException()
+        {
+            try
+            {
+                object result = MoodAnalyserFactory.SetField("HAPPY", "mes");
+            }
+            catch (MoodAnalyserCustomException exception)
+            {
+                Assert.AreEqual("Field is not found", exception.Message);
+            }
+        }
+        [TestMethod]
+        public void SetNullMessage_ShouldThrowxception()
+        {
+            try
+            {
+                object result = MoodAnalyserFactory.SetField(null, "message");
+            }
+            catch (MoodAnalyserCustomException exception)
+            {
+                Assert.AreEqual("Message should not be null", exception.Message);
+            }
+        }
     }
 }
