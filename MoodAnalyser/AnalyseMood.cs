@@ -15,7 +15,6 @@ namespace MoodAnalyser
         //{
         //    this.mood = inputMessage;
         //}
-
         public AnalyseMood()
         {
             Console.WriteLine("Default Constuctor");
