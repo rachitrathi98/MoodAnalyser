@@ -11,7 +11,9 @@ namespace MoodAnalyser
             // MoodAnalyserFactory.CreateMoodAnalyserObject("MoodAnalyser.AnalyseMood", "AnalyseMood");
             //MoodAnalyserFactory.CreateMoodAnalyserParameterizedObject("MoodAnalyser.AnalyseMood", "AnalyseMood", "happy");
             // MoodAnalyserFactory.InvokeAnalyserMethod("happy", "Analysemood");
-            Console.WriteLine(MoodAnalyserFactory.SetField("HAPPY", "message"));
+            Console.WriteLine(MoodAnalyserFactory.SetField("HAPPY", "inputMessage"));
+            AnalyseMood analyseMood = new AnalyseMood();
+            Console.WriteLine(analyseMood.inputMessage);
         }
     }
 }
