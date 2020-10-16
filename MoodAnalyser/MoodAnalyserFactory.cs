@@ -8,6 +8,17 @@ namespace MoodAnalyser
 {
     public class MoodAnalyserFactory
     {
+        /// <summary>
+        /// UC4: Creates the mood analyser object with default constructor
+        /// </summary>
+        /// <param name="className">Name of the class.</param>
+        /// <param name="constructor">The constructor.</param>
+        /// <returns></returns>
+        /// <exception cref="MoodAnalyserCustomException">
+        /// class not found
+        /// or
+        /// constructor not found
+        /// </exception>
         public static object CreateMoodAnalyserObject(string className, string constructor)
         {
             string pattern = @"." + constructor + "$";
@@ -31,6 +42,18 @@ namespace MoodAnalyser
                 throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NO_SUCH_CONSTRUCTOR, "constructor not found");
             }
         }
+        /// <summary>
+        /// UC5: Creates the mood analyser object with parameterized constructor.
+        /// </summary>
+        /// <param name="className">Name of the class.</param>
+        /// <param name="constructor">The constructor.</param>
+        /// <param name="message">The message.</param>
+        /// <returns></returns>
+        /// <exception cref="MoodAnalyserCustomException">
+        /// constructor not found
+        /// or
+        /// class not found
+        /// </exception>
         public static object CreateMoodAnalyserParameterizedObject(string className, string constructor, string message)
         {
             Type type = typeof(AnalyseMood);
@@ -51,6 +74,13 @@ namespace MoodAnalyser
                 throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NO_SUCH_CLASS, "class not found");
             }
         }
+        /// <summary>
+        /// UC6: Using Reflection Invokes the analyser method.
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <param name="methodName">Name of the method.</param>
+        /// <returns></returns>
+        /// <exception cref="MoodAnalyserCustomException">method not found</exception>
         public static string InvokeAnalyserMethod(string message, string methodName)
         {
             try
@@ -66,7 +96,17 @@ namespace MoodAnalyser
                 throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NO_SUCH_METHOD, "method not found");
             }
         }
-
+        /// <summary>
+        /// UC7: Sets the field to change the mood dynamically.
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <param name="fieldName">Name of the field.</param>
+        /// <returns></returns>
+        /// <exception cref="MoodAnalyserCustomException">
+        /// Message should not be null
+        /// or
+        /// Field is not found
+        /// </exception>
         public static string SetField(string message, string fieldName)
         {
             try

@@ -14,6 +14,9 @@ namespace MoodAnalyserTest
             object result = MoodAnalyserFactory.CreateMoodAnalyserObject("MoodAnalyser.AnalyseMood", "AnalyseMood");
             obj.Equals(result);
         }
+        /// <summary>
+        /// UC 6.1: Given happy message using reflection when proper should return happy mood
+        /// </summary>
         [TestMethod]
         public void GivenMoodAnalyserReflection_Return_MoodAnalyserParameterizedObject()
         {
@@ -28,7 +31,9 @@ namespace MoodAnalyserTest
             string mood = MoodAnalyserFactory.InvokeAnalyserMethod("happy", "Analysemood");
             expected.Equals(mood);
         }
-
+        /// <summary>
+        /// UC 6.2: should throw return happy message should throw MoodAnalysisException
+        /// </summary>
         [TestMethod]
         public void GivenHappyMoodImproperMethod_ShouldReturn_HappyMessage()
         {
@@ -44,6 +49,9 @@ namespace MoodAnalyserTest
             }
             expected.Equals(actual);
         }
+        /// <summary>
+        /// UC 7.1: Given the happy message return happy.
+        /// </summary>
         [TestMethod]
         public void GivenHappy_ReturnHAPPY()
         {
@@ -54,6 +62,9 @@ namespace MoodAnalyserTest
             //Assert
             Assert.AreEqual(expected, actual);
         }
+        /// <summary>
+        /// UC 7.2:When Set field is improper should throw exception.
+        /// </summary>
         [TestMethod]
         public void SetFieldWhenImproper_ShouldThrowException()
         {
@@ -66,6 +77,9 @@ namespace MoodAnalyserTest
                 Assert.AreEqual("Field is not found", exception.Message);
             }
         }
+        /// <summary>
+        /// UC 7.3: Sets the null message should throwxception.
+        /// </summary>
         [TestMethod]
         public void SetNullMessage_ShouldThrowxception()
         {
