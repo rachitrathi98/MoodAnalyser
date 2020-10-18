@@ -113,7 +113,7 @@ namespace MoodAnalyser
             {
                 AnalyseMood analyseMood = new AnalyseMood();
                 Type type = typeof(AnalyseMood);
-                FieldInfo field = type.GetField(fieldName, BindingFlags.Public | BindingFlags.Instance);
+                FieldInfo field = type.GetField(fieldName, BindingFlags.NonPublic | BindingFlags.Instance);
                 if (message == null)
                 {
                     throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NULL_MESSAGE, "Message should not be null");
